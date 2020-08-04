@@ -182,7 +182,7 @@ def _maybe_convert_wav(mp3_filename, wav_filename):
         transformer.convert(samplerate=SAMPLE_RATE)
         try:
             transformer.build(mp3_filename, wav_filename)
-        except sox.core.SoxError:
+        except (sox.core.SoxError, sox.core.SoxiError) as e:
             pass
 
 
